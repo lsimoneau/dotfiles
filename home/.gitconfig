@@ -6,6 +6,7 @@
 	st = status
 	co = checkout
 	graph = log --graph --pretty=format:\\\"%Cblue%h%Cgreen %an%Creset: %s\\\"
+	ctags = !.git/hooks/ctags
 [user]
 	name = Louis Simoneau
 	email = simoneau.louis@gmail.com
