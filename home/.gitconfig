@@ -9,3 +9,5 @@
 [user]
 	name = Louis Simoneau
 	email = simoneau.louis@gmail.com
+[init]
+	templatedir = ~/.git_template
