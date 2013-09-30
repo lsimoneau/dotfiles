@@ -1,0 +1,54 @@
+[submodule "bundle/nerdtree"]
+	path = home/.vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "bundle/ack.vim"]
+	path = home/.vim/bundle/ack.vim
+	url = git://github.com/mileszs/ack.vim.git
+[submodule "bundle/vim-ruby"]
+	path = home/.vim/bundle/vim-ruby
+	url = git://github.com/vim-ruby/vim-ruby.git
+[submodule "bundle/vim-rails"]
+	path = home/.vim/bundle/vim-rails
+	url = git://github.com/tpope/vim-rails.git
+[submodule "bundle/checksyntax"]
+	path = home/.vim/bundle/checksyntax
+	url = git://github.com/tomtom/checksyntax_vim.git
+[submodule "bundle/fugitive"]
+	path = home/.vim/bundle/fugitive
+	url = git://github.com/tpope/vim-fugitive.git
+[submodule "bundle/textobj-user"]
+	path = home/.vim/bundle/textobj-user
+	url = git://github.com/kana/vim-textobj-user.git
+[submodule "bundle/textobj-rubyblock"]
+	path = home/.vim/bundle/textobj-rubyblock
+	url = git://github.com/nelstrom/vim-textobj-rubyblock.git
+[submodule "bundle/vim-markdown"]
+	path = bundle/vim-markdown
+	url = git://github.com/tpope/vim-markdown.git
+[submodule "bundle/tslime"]
+	path = home/.vim/bundle/tslime
+	url = git://github.com/xaviershay/tslime.vim.git
+[submodule "bundle/ctrlp"]
+	path = home/.vim/bundle/ctrlp
+	url = git://github.com/kien/ctrlp.vim.git
+[submodule "bundle/jellybeans"]
+	path = home/.vim/bundle/jellybeans
+	url = git://github.com/nanotech/jellybeans.vim.git
+[submodule "bundle/powerline"]
+	path = home/.vim/bundle/powerline
+	url = git://github.com/Lokaltog/vim-powerline.git
+[submodule "bundle/vim-javascript"]
+	path = home/.vim/bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
+[submodule "bundle/vim-coffee-script"]
+	path = home/.vim/bundle/vim-coffee-script
+	url = https://github.com/kchmck/vim-coffee-script.git
+[submodule "bundle/vim-gitgutter"]
+	path = home/.vim/bundle/vim-gitgutter
+	url = git://github.com/airblade/vim-gitgutter.git
+[submodule "bundle/vimux"]
+	path = home/.vim/bundle/vimux
+	url = https://github.com/benmills/vimux.git
+[submodule "bundle/ag.vim"]
+	path = home/.vim/bundle/ag.vim
+	url = https://github.com/rking/ag.vim
