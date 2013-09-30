@@ -89,15 +89,25 @@ function! RunCurrentTest()
   if in_test_file
     call SetTestFile()
 
+    if glob(".zeus.sock") != ""
+      call SetTestPrefix("clear; zeus")
+    else
+      call SetTestPrefix("clear; bx")
+    endif
+
     if match(expand('%'), '\.feature$') != -1
-      call SetTestRunner("clear; bx rspec")
+      call SetTestRunner("rspec")
     elseif match(expand('%'), '_spec\.rb$') != -1
-      call SetTestRunner("clear; bx rspec")
+      call SetTestRunner("rspec")
     else
       call SetTestRunner("!ruby -Itest")
     endif
   endif
-  call VimuxRunCommand(g:bjo_test_runner . " " . g:bjo_test_file)
+  call VimuxRunCommand(g:bjo_test_prefix . " " . g:bjo_test_runner . " " . g:bjo_test_file)
+endfunction
+
+function! SetTestPrefix(prefix)
+  let g:bjo_test_prefix=a:prefix
 endfunction
 
 function! SetTestRunner(runner)
@@ -110,7 +120,7 @@ function! RunCurrentLineInTest()
     call SetTestFileWithLine()
   end
 
-  call VimuxRunCommand(g:bjo_test_runner . " " . g:bjo_test_file. ":" . g:bjo_test_file_line)
+  call VimuxRunCommand(g:bjo_test_prefix . " " . g:bjo_test_runner . " " . g:bjo_test_file. ":" . g:bjo_test_file_line)
 endfunction
 
 function! SetTestFile()
