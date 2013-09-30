@@ -7,7 +7,12 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
 
+# Git aliases
+alias gu='git push origin $(current_branch)'
+alias gd='git fetch && git rebase origin/$(current_branch)'
+
 # Example aliases
+#
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
