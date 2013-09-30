@@ -11,6 +11,18 @@ ZSH_THEME="robbyrussell"
 alias gu='git push origin $(current_branch)'
 alias gd='git fetch && git rebase origin/$(current_branch)'
 
+function current_branch() {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || \
+  ref=$(git rev-parse --short HEAD 2> /dev/null) || return
+  echo ${ref#refs/heads/}
+}
+
+function current_repository() {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || \
+  ref=$(git rev-parse --short HEAD 2> /dev/null) || return
+  echo $(git remote -v | cut -d':' -f 2)
+}
+
 # Example aliases
 #
 # alias zshconfig="mate ~/.zshrc"
@@ -37,7 +49,7 @@ alias gd='git fetch && git rebase origin/$(current_branch)'
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=()
 
 source $ZSH/oh-my-zsh.sh
 
