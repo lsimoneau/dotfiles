@@ -60,3 +60,6 @@
 [submodule "home/.vim/bundle/vim-bundler"]
 	path = home/.vim/bundle/vim-bundler
 	url = https://github.com/tpope/vim-bundler
+[submodule "home/.vim/bundle/rake"]
+	path = home/.vim/bundle/rake
+	url = https://github.com/tpope/vim-rake.git
