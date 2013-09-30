@@ -90,9 +90,9 @@ function! RunCurrentTest()
     call SetTestFile()
 
     if match(expand('%'), '\.feature$') != -1
-      call SetTestRunner("clear; rspec")
+      call SetTestRunner("clear; bx rspec")
     elseif match(expand('%'), '_spec\.rb$') != -1
-      call SetTestRunner("clear; rspec")
+      call SetTestRunner("clear; bx rspec")
     else
       call SetTestRunner("!ruby -Itest")
     endif
