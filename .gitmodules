@@ -36,7 +36,7 @@
 	url = git://github.com/airblade/vim-gitgutter.git
 [submodule "home/.vim/bundle/vimux"]
 	path = home/.vim/bundle/vimux
-	url = https://github.com/benmills/vimux.git
+	url = https://github.com/benmills/vimux
 [submodule "home/.vim/bundle/ag.vim"]
 	path = home/.vim/bundle/ag.vim
 	url = https://github.com/rking/ag.vim
