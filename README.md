@@ -13,3 +13,13 @@ gem install homesick
 homesick clone lsimoneau/dotfiles
 homesick symlink lsimoneau/dotfiles
 ```
+
+Ctags
+-----
+
+Ctag hooks are set up for git, so the ctags for a project will be re-indexed on commit, merge, rebase, and checkout. Ctags in Ruby's standard library are handled by vim-ruby, but if you want ctags on installed gems (and you should), install [gem-ctags](https://github.com/tpope/gem-ctags):
+
+```
+gem install gem-ctags
+gem ctags
+```
