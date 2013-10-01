@@ -1,6 +1,6 @@
 # Git aliases
 alias gu='git push origin $(current_branch)'
-alias gd='git fetch && git rebase -P origin/$(current_branch)'
+alias gd='git fetch && git rebase -p origin/$(current_branch)'
 alias gff='git fetch && git merge origin/$(current_branch) --ff-only'
 
 function current_branch() {
