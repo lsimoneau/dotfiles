@@ -50,11 +50,12 @@ autocmd FileType php setlocal sts=2 ts=2 sw=2 noet
 " Default assembler syntax
 let asmsyntax = "nasm"
 
-" Highlight trailing whitespace etc
-highlight ExtraWhitespace ctermbg=darkred guibg=darkred
-autocmd ColorScheme * highlight ExtraWhitespace
-" Show leading whitespace that includes spaces, and trailing whitespace.
-:autocmd BufWinEnter * match ExtraWhitespace /\s\+$\| \+\ze\t/
+" Highlight trailing whitespace, but not during insertion
+highlight TrailingWhitespace ctermbg=red guibg=red
+au BufEnter    * match TrailingWhitespace /\s\+$/
+au InsertEnter * match TrailingWhitespace /\s\+\%#\@<!$/
+au InsertLeave * match TrailingWhitespace /\s\+$/
+au BufWinLeave * call clearmatches()
 
 " refresh all buffers
 nnoremap <leader>+ :set noconfirm<cr>:bufdo e!<cr>:set confirm<cr>

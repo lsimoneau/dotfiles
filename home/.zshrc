@@ -16,6 +16,7 @@ ZSH_CUSTOM=$HOME/.zsh
 plugins=(git)
 
 alias bx="bundle exec"
+alias c="clear"
 
 source $ZSH/oh-my-zsh.sh
 
