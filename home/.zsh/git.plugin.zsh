@@ -2,6 +2,7 @@
 alias gu='git push origin $(current_branch)'
 alias gd='git fetch && git rebase -p origin/$(current_branch)'
 alias gff='git fetch && git merge origin/$(current_branch) --ff-only'
+alias gl='git lg'
 
 function current_branch() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || \
