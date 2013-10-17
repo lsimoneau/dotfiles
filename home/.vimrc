@@ -92,8 +92,10 @@ function! RunCurrentTest()
 
     if glob(".zeus.sock") != ""
       call SetTestPrefix("clear; zeus")
-    else
+    elseif GemfileExists()
       call SetTestPrefix("clear; bx")
+    else
+      call SetTestPrefix("clear;")
     endif
 
     if match(expand('%'), '\.feature$') != -1
@@ -122,6 +124,14 @@ function! RunCurrentLineInTest()
   end
 
   call VimuxRunCommand(g:bjo_test_prefix . " " . g:bjo_test_runner . " " . g:bjo_test_file. ":" . g:bjo_test_file_line)
+endfunction
+
+function! GemfileExists()
+  if filereadable("Gemfile")
+    return 1
+  else
+    return 0
+  endif
 endfunction
 
 function! SetTestFile()
