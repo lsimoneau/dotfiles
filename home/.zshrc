@@ -14,6 +14,7 @@ ZSH_CUSTOM=$HOME/.zsh
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git vi-mode)
+bindkey -M viins 'jj' vi-cmd-mode
 
 alias bx="bundle exec"
 alias c="clear"
