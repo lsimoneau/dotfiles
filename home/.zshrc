@@ -23,7 +23,7 @@ source $ZSH/oh-my-zsh.sh
 export JAVA_HOME=/usr/local/java/jdk1.7.0_21
 
 # Customize to your needs...
-export PATH=/home/vagrant/.rbenv/shims:/home/vagrant/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/opt/vagrant_ruby/bin
+export PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/opt/vagrant_ruby/bin
 
 export PATH=$PATH:$HOME/bin:$JAVA_HOME/bin
 export PATH=$PATH:/opt/mysql/server-5.6/bin
@@ -44,6 +44,6 @@ export LC_ALL="en_AU.UTF-8"
 export LC_CTYPE="en_AU.UTF-8"
 
 # added by travis gem
-source /home/vagrant/.travis/travis.sh
+#source /home/vagrant/.travis/travis.sh
 
 eval "$(rbenv init -)"
