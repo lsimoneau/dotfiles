@@ -15,6 +15,7 @@ ZSH_CUSTOM=$HOME/.zsh
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git vi-mode)
 bindkey -M viins 'jj' vi-cmd-mode
+bindkey '^R' history-incremental-search-backward
 
 alias bx="bundle exec"
 alias c="clear"
