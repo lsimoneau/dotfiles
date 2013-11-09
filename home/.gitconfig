@@ -14,3 +14,5 @@
 	email = simoneau.louis@gmail.com
 [init]
 	templatedir = ~/.git_template
+[core]
+	excludesfile = /Users/louissimoneau/.gitignore
