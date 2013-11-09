@@ -14,15 +14,24 @@ ZSH_CUSTOM=$HOME/.zsh
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git vi-mode)
-bindkey -M viins 'jj' vi-cmd-mode
+
+source $ZSH/oh-my-zsh.sh
+
 bindkey '^R' history-incremental-search-backward
+bindkey -M viins 'jj' vi-cmd-mode
 
 alias bx="bundle exec"
 alias c="clear"
 
-source $ZSH/oh-my-zsh.sh
+# osx ctags
+alias ctags="`brew --prefix`/bin/ctags"
 
-export JAVA_HOME=/usr/local/java/jdk1.7.0_21
+# Linux:
+# export JAVA_HOME=/usr/local/java/jdk1.7.0_21
+# OSX:
+export JAVA_HOME=$(/usr/libexec/java_home)
+
+export GOPATH=$HOME/go
 
 # Customize to your needs...
 export PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/opt/vagrant_ruby/bin
@@ -30,6 +39,7 @@ export PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/
 export PATH=$PATH:$HOME/bin:$JAVA_HOME/bin
 export PATH=$PATH:/opt/mysql/server-5.6/bin
 export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$GOPATH/bin
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
