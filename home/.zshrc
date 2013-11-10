@@ -17,19 +17,30 @@ plugins=(git vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
+# Where are we?
+platform='unknown'
+unamestr=`uname`
+if [[ "$unamestr" == 'Linux' ]]; then
+  platform='linux'
+elif [[ "$unamestr" == 'Darwin' ]]; then
+  platform='osx'
+fi
+
 bindkey '^R' history-incremental-search-backward
 bindkey -M viins 'jj' vi-cmd-mode
 
 alias bx="bundle exec"
 alias c="clear"
 
-# osx ctags
-alias ctags="`brew --prefix`/bin/ctags"
+if [[ "$platform" == "osx" ]]; then
+  alias ctags="`brew --prefix`/bin/ctags"
+fi
 
-# Linux:
-# export JAVA_HOME=/usr/local/java/jdk1.7.0_21
-# OSX:
-export JAVA_HOME=$(/usr/libexec/java_home)
+if [[ "$platform" == "osx" ]]; then
+  export JAVA_HOME=$(/usr/libexec/java_home)
+elif [[ "$platform" == "linux" ]]; then
+  export JAVA_HOME=/usr/local/java/jdk1.7.0_21
+fi
 
 export GOPATH=$HOME/go
 
