@@ -34,18 +34,18 @@ alias c="clear"
 
 if [[ "$platform" == "osx" ]]; then
   alias ctags="`brew --prefix`/bin/ctags"
+  export PATH="/Applications/Postgres.app/Contents/MacOS/bin:${PATH}"
+  export JAVA_HOME=$(/usr/libexec/java_home)
 fi
 
-if [[ "$platform" == "osx" ]]; then
-  export JAVA_HOME=$(/usr/libexec/java_home)
-elif [[ "$platform" == "linux" ]]; then
+if [[ "$platform" == "linux" ]]; then
   export JAVA_HOME=/usr/local/java/jdk1.7.0_21
 fi
 
 export GOPATH=$HOME/go
 
 # Customize to your needs...
-export PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/opt/vagrant_ruby/bin
+export PATH=$PATH:$HOME/.rbenv/shims:$HOME/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/opt/vagrant_ruby/bin
 
 export PATH=$PATH:$HOME/bin:$JAVA_HOME/bin
 export PATH=$PATH:/opt/mysql/server-5.6/bin
