@@ -32,6 +32,15 @@ bindkey -M viins 'jj' vi-cmd-mode
 alias bx="bundle exec"
 alias c="clear"
 
+export GOPATH=$HOME/go
+
+export PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/opt/vagrant_ruby/bin:$PATH
+
+export PATH=$PATH:$HOME/bin:$JAVA_HOME/bin
+export PATH=$PATH:/opt/mysql/server-5.6/bin
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$GOPATH/bin
+
 if [[ "$platform" == "osx" ]]; then
   alias ctags="`brew --prefix`/bin/ctags"
   export PATH="/Applications/Postgres.app/Contents/MacOS/bin:${PATH}"
@@ -42,15 +51,6 @@ if [[ "$platform" == "linux" ]]; then
   export JAVA_HOME=/usr/local/java/jdk1.7.0_21
 fi
 
-export GOPATH=$HOME/go
-
-# Customize to your needs...
-export PATH=$PATH:$HOME/.rbenv/shims:$HOME/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/opt/vagrant_ruby/bin
-
-export PATH=$PATH:$HOME/bin:$JAVA_HOME/bin
-export PATH=$PATH:/opt/mysql/server-5.6/bin
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$GOPATH/bin
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 

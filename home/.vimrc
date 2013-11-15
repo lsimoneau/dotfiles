@@ -263,6 +263,11 @@ function! Tab_Or_Complete()
 endfunction
 :inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
 
+command! TagFiles :call EchoTags()
+function! EchoTags()
+  echo join(split(&tags, ","), "\n")
+endfunction
+
 """"""""""
 " Plugins
 
