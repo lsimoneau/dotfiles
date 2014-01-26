@@ -29,6 +29,7 @@ fi
 bindkey '^R' history-incremental-search-backward
 bindkey -M viins 'jj' vi-cmd-mode
 
+alias rake="noglob rake"
 alias bx="bundle exec"
 alias c="clear"
 
