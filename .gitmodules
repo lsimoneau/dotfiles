@@ -66,3 +66,6 @@
 [submodule "home/.vim/bundle/vim-eco"]
 	path = home/.vim/bundle/vim-eco
 	url = https://github.com/AndrewRadev/vim-eco.git
+[submodule "home/.vim/bundle/vim-scala"]
+	path = home/.vim/bundle/vim-scala
+	url = https://github.com/derekwyatt/vim-scala
