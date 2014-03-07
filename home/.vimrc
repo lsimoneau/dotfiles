@@ -230,15 +230,11 @@ for prefix in ['n', 'v']
   endfor
 endfor
 
-" Tabs to navigate split panes
-nmap <Tab> <C-W>w
-nmap <S-Tab> <C-W>W
-
-" Arrow keys navigate split windows!
-nmap <Up> <C-W><Up>
-nmap <Down> <C-W><Down>
-nmap <Left> <C-W><Left>
-nmap <Right> <C-W><Right>
+" Ctrl-HJKL to navigate split panes
+:nmap <silent> <C-h> :wincmd h<CR>
+:nmap <silent> <C-j> :wincmd j<CR>
+:nmap <silent> <C-k> :wincmd k<CR>
+:nmap <silent> <C-l> :wincmd l<CR>
 
 " Mouse for scrolling etc in console.
 set mouse=a
