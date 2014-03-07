@@ -17,3 +17,5 @@
 	templatedir = ~/.git_template
 [core]
 	excludesfile = /Users/louissimoneau/.gitignore
+[merge]
+	conflictstyle = diff3
