@@ -13,7 +13,7 @@ ZSH_CUSTOM=$HOME/.zsh
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git vi-mode)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -27,7 +27,6 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
 fi
 
 bindkey '^R' history-incremental-search-backward
-bindkey -M viins 'jj' vi-cmd-mode
 
 alias rake="noglob rake"
 alias bx="bundle exec"
