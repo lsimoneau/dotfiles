@@ -37,6 +37,7 @@ export GOPATH=$HOME/go
 export PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/opt/vagrant_ruby/bin:$PATH
 
 export PATH=$PATH:$HOME/bin:$JAVA_HOME/bin
+export PATH=$PATH:$HOME/adt/sdk/platform-tools
 export PATH=$PATH:/opt/mysql/server-5.6/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOPATH/bin
