@@ -64,8 +64,6 @@ nnoremap <leader>+ :set noconfirm<cr>:bufdo e!<cr>:set confirm<cr>
 let mapleader = ";"
 let g:mapleader = ";"
 
-imap jj <esc>
-
 " quick access Gstatus and Gcommit
 nnoremap <leader>s :Gstatus<cr>
 nnoremap <leader>c :Gcommit<cr>
