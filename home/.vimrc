@@ -80,29 +80,36 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 " Convert to Ruby 1.9 hash syntax
 noremap <leader>9 :s/:\(\S\+\)\s\+=>\s\+/\1: /g<cr>
 
+let g:VimuxOrientation = "h"
+let g:VimuxHeight = "40"
+
+" Ctrl-d to delete prev word in insert mode
+imap <C-d> <C-[>diwi
+
+" Ctrl-s to save current buffer
+map <C-s> <esc>:w<CR>
+imap <C-s> <esc>:w<CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Test-running stuff
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! RunCurrentTest()
-  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\)$') != -1
+  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\|_spec.js.coffee\)$') != -1
   if in_test_file
     call SetTestFile()
-
-    if glob(".zeus.sock") != ""
-      call SetTestPrefix("clear; zeus")
-    else
-      call SetTestPrefix("clear;")
-    endif
+    call SetTestPrefix("clear;")
 
     if match(expand('%'), '\.feature$') != -1
-      call SetTestRunner("rspec")
+      call SetTestRunner("rspec ")
     elseif match(expand('%'), '_spec\.rb$') != -1
-      call SetTestRunner("rspec")
+      call SetTestRunner("rspec ")
+    elseif match(expand('%'), '_spec\.js\.coffee$') != -1
+      call SetTestRunner("rake konacha:run SPEC=")
     else
       call SetTestRunner("!ruby -Itest")
     endif
   endif
-  call VimuxRunCommand(g:bjo_test_prefix . " " . g:bjo_test_runner . " " . g:bjo_test_file)
+  call VimuxRunCommand(g:bjo_test_prefix . " " . g:bjo_test_runner . g:bjo_test_file)
 endfunction
 
 function! SetTestPrefix(prefix)
@@ -135,8 +142,9 @@ endfunction
 map <Leader>t :w<cr>:call RunCurrentTest()<CR>
 map <Leader>o :w<cr>:call RunCurrentLineInTest()<CR>
 
-" Close vim tmux runner opened by VimuxRunCommand
+" Vimux shortcuts
 map <Leader>vq :VimuxCloseRunner<CR>
+map <Leader>vz :VimuxZoomRunner<CR>
 
 " Something to do with editing multiple files..?
 set hidden
@@ -185,6 +193,7 @@ set modelines=0
 set encoding=utf-8
 
 " Highlight the screen line of the cursor, easier to find the cursor.
+set cursorcolumn
 set cursorline
 
 " Terminals are plenty fast these days.
