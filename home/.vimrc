@@ -68,10 +68,6 @@ nnoremap <leader>+ :set noconfirm<cr>:bufdo e!<cr>:set confirm<cr>
 let mapleader = ";"
 let g:mapleader = ";"
 
-" quick access Gstatus and Gcommit
-nnoremap <leader>s :Gstatus<cr>
-nnoremap <leader>c :Gcommit<cr>
-
 " Highlisght search results as you type, <leader><space> to clear
 set incsearch
 set showmatch
