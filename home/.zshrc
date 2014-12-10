@@ -28,8 +28,6 @@ fi
 
 bindkey '^R' history-incremental-search-backward
 
-alias rake="noglob rake"
-alias bx="bundle exec"
 alias c="clear"
 
 export GOPATH=$HOME/go
@@ -41,6 +39,7 @@ export PATH=$PATH:$HOME/adt/sdk/platform-tools
 export PATH=$PATH:/opt/mysql/server-5.6/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOPATH/bin
+export PATH="$PATH:$HOME/elixir/elixir/bin"
 
 if [[ "$platform" == "osx" ]]; then
   alias ctags="`brew --prefix`/bin/ctags"

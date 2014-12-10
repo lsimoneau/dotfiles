@@ -3,6 +3,7 @@
 filetype on
 filetype off
 call pathogen#incubate()
+set runtimepath+=/usr/local/Cellar/go/1.2.2/libexec/misc/vim
 filetype plugin indent on
 
 " Color scheme
@@ -40,6 +41,9 @@ augroup END
 " (currently matches global config, remains as reference)
 autocmd FileType cucumber setlocal sts=2 ts=2 sw=2 et
 autocmd FileType scss setlocal sts=2 ts=2 sw=2 et
+
+" Elixir eex files until they fix syntax
+au BufNewFile,BufRead *.eex set ft=html
 
 " Syntax for Golang
 au BufRead,BufNewFile *.go set filetype=go
