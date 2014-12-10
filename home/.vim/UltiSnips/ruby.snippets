@@ -1,0 +1,28 @@
+snippet "\b(de)?f" "def <name>..." r
+def ${1:function_name}${2:(${3:*args})}
+  $0
+end
+endsnippet
+
+snippet defi "def initialize ..."
+def initialize${1:(${2:*args})}
+	$0
+end
+endsnippet
+
+snippet "^#!" "#!/usr/bin/env ruby" r
+#!/usr/bin/env ruby
+$0
+endsnippet
+
+snippet desc "describe ... do"
+describe "${1:subject}" do
+  $0
+end
+endsnippet
+
+snippet it "it ... do"
+it "${1:subject}" do
+  $0
+end
+endsnippet
