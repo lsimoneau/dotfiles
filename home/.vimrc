@@ -68,6 +68,10 @@ nnoremap <leader>+ :set noconfirm<cr>:bufdo e!<cr>:set confirm<cr>
 let mapleader = ";"
 let g:mapleader = ";"
 
+" Fugitive commit / status
+nnoremap <leader>c :Gcommit<cr>
+nnoremap <leader>s :Gstatus<cr>
+
 " Highlisght search results as you type, <leader><space> to clear
 set incsearch
 set showmatch
