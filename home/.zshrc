@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="miloshadzic"
+ZSH_THEME="lsimoneau"
 
 # Custom oh-my-zsh plugin directory
 ZSH_CUSTOM=$HOME/.zsh
@@ -69,4 +69,6 @@ export LC_CTYPE="en_AU.UTF-8"
 # added by travis gem
 #source /home/vagrant/.travis/travis.sh
 
-eval "$(rbenv init -)"
+export AWS_CLI=/usr/local/bin/aws
+source $HOME/.zsh/saml-aws-functions
+source $HOME/.zsh/docker_env
