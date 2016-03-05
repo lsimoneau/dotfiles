@@ -13,7 +13,7 @@ ZSH_CUSTOM=$HOME/.zsh
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git bundler)
+plugins=(git bundler rea-saml)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -68,7 +68,13 @@ export LC_CTYPE="en_AU.UTF-8"
 
 # added by travis gem
 #source /home/vagrant/.travis/travis.sh
+source /usr/local/opt/chruby/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
+chruby 2.2
 
 export AWS_CLI=/usr/local/bin/aws
 source $HOME/.zsh/saml-aws-functions
-source $HOME/.zsh/docker_env
+
+eval "$(docker-machine env dev)"
+
+eval "$(direnv hook zsh)"

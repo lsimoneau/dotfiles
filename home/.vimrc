@@ -42,17 +42,8 @@ augroup END
 autocmd FileType cucumber setlocal sts=2 ts=2 sw=2 et
 autocmd FileType scss setlocal sts=2 ts=2 sw=2 et
 
-" Elixir eex files until they fix syntax
-au BufNewFile,BufRead *.eex set ft=html
-
 " Syntax for Golang
 au BufRead,BufNewFile *.go set filetype=go
-
-" PHP whitespace: tabs, width 2
-autocmd FileType php setlocal sts=2 ts=2 sw=2 noet
-
-" Default assembler syntax
-let asmsyntax = "nasm"
 
 " Highlight trailing whitespace, but not during insertion
 highlight TrailingWhitespace ctermbg=red guibg=red
@@ -98,7 +89,7 @@ imap <C-s> <esc>:w<CR>
 " Test-running stuff
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! RunCurrentTest()
-  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\|_spec.js.coffee\)$') != -1
+  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\|_test.exs\)$') != -1
   if in_test_file
     call SetTestFile()
     call SetTestPrefix("clear;")
@@ -107,10 +98,10 @@ function! RunCurrentTest()
       call SetTestRunner("rspec ")
     elseif match(expand('%'), '_spec\.rb$') != -1
       call SetTestRunner("rspec ")
-    elseif match(expand('%'), '_spec\.js\.coffee$') != -1
-      call SetTestRunner("rake konacha:run SPEC=")
+    elseif match(expand('%'), '_test\.exs$') != -1
+      call SetTestRunner("mix test ")
     else
-      call SetTestRunner("!ruby -Itest")
+      call SetTestRunner("ruby -Ilib:test ")
     endif
   endif
   call VimuxRunCommand(g:bjo_test_prefix . " " . g:bjo_test_runner . g:bjo_test_file)
