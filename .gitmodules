@@ -72,3 +72,6 @@
 [submodule "home/.vim/bundle/vim-elm"]
 	path = home/.vim/bundle/vim-elm
 	url = https://github.com/lambdatoast/elm.vim.git
+[submodule "home/.vim/bundle/nerdcommenter"]
+	path = home/.vim/bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
