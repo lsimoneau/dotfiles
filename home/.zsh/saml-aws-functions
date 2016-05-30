@@ -9,7 +9,11 @@
 #AWS_ASSUME_ROLE=arn:aws:iam::369407384105:role/cross-account-federated-role
 
 if [ -z "$AWS_CLI" ]; then
-    AWS_CLI=$( type -P aws )
+    if [ -n "$ZSH_VERSION" ]; then
+        AWS_CLI=$(whence -p aws)
+    else
+        AWS_CLI=$(type -P aws)
+    fi
 fi
 
 aws_saml() {
@@ -47,6 +51,12 @@ check_expired() {
   fi
 }
 
+authenticate_help() {
+  cat <<EOF | sed -E 's/\ {4}//g'
+    usage: authenticate [-u user] [-r role]
+EOF
+}
+
 authenticate() {
   while true;
   do
@@ -59,9 +69,9 @@ authenticate() {
         local selected_role=$2
         shift 2
         ;;
-      -h | --idp-host)
-        IDP_HOST=$2
-        shift 2
+      -h | --help)
+        authenticate_help
+        return 1
         ;;
       --)
         shift
@@ -187,21 +197,7 @@ saml_auth() {
   echo "" >&2
 
   # idphost = your idp hostname
-  local default_idphost="idp.realestate.com.au"
-
-  if [ -n "$IDP_HOST" ]; then
-    default_idphost=$IDP_HOST
-    echo "IDP_HOST: $IDP_HOST"
-  else
-    echo -n "idp host [$default_idphost]: "
-    read host
-  fi
-
-  if [ -z $host ]; then
-    idphost=$default_idphost
-  else
-    idphost=$host
-  fi
+  idphost="idp.realestate.com.au"
 
   # idpid = your idp entity id
   local idpid="https://$idphost/idp/shibboleth"
@@ -233,16 +229,18 @@ saml_auth() {
   # Need to base64-encode username and password to cope with special chars
   local auth_str=$( echo -n "${userid}:${userpw}" | base64 )
   unset userpw
-  local resp=$( curl -H "Content-Type: text/xml; charset=utf-8"  -H "Authorization: Basic $auth_str" --write-out %{http_code} --output /tmp/idp-response.xml -s -d  "$envelope" "$URL" )
+  local responsefile=$(mktemp -t idp-response.XXXXXXXXXX) || return 1
+  local resp=$( curl -H "Content-Type: text/xml; charset=utf-8"  -H "Authorization: Basic $auth_str" --write-out %{http_code} --output $responsefile -s -d  "$envelope" "$URL" )
 
   if [ $resp -eq 200 ]; then
      echo "SAML login request successful!"
-     [[ "$( cat -t /tmp/idp-response.xml )" =~ soap11:Body\>(.*)\<\/soap11:Body ]] && export SAML_RESPONSE="$( echo -e "${BASH_REMATCH[1]}" )"
-     rm /tmp/idp-response.xml
+     [[ "$( cat -t $responsefile )" =~ soap11:Body\>(.*)\<\/soap11:Body ]] && export SAML_RESPONSE="$( echo -e "${BASH_REMATCH[1]}" )"
+     /bin/rm -f $responsefile
      return 0
   else
     echo "SAML login request failed, http response code $resp"
     unset SAML_RESPONSE
+    /bin/rm -f $responsefile
     return $resp
   fi
 }
