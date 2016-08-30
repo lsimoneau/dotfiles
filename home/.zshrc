@@ -30,6 +30,12 @@ bindkey '^R' history-incremental-search-backward
 
 alias c="clear"
 
+alias t='python ~/bin/t.py --task-dir ~/tasks --list tasks'
+
+tc() {
+  (cd ~/tasks && git add . && git commit -m "Update tasks" && git push)
+}
+
 export GOPATH=$HOME/go
 
 export PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/opt/vagrant_ruby/bin:$PATH
@@ -70,7 +76,7 @@ export LC_CTYPE="en_AU.UTF-8"
 #source /home/vagrant/.travis/travis.sh
 source /usr/local/opt/chruby/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
-chruby 2.2
+chruby 2.3
 
 export AWS_CLI=/usr/local/bin/aws
 source $HOME/.zsh/saml-aws-functions
