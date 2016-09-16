@@ -37,6 +37,11 @@ augroup filetype_ruby
   autocmd FileType ruby setlocal sts=2 ts=2 sw=2 et
 augroup END
 
+augroup filetype_rust
+  autocmd!
+  autocmd FileType rust setlocal sts=4 ts=4 sw=4 et
+augroup END
+
 " Ruby whitespace: two spaces, no tabs
 " (currently matches global config, remains as reference)
 autocmd FileType cucumber setlocal sts=2 ts=2 sw=2 et
