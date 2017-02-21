@@ -1,10 +1,18 @@
-" Pathogen: manage plugins in separate directories by manipulating runtimepath.
 " Note: 'filetype off' when already off causes a non-zero exit code from vim.
 filetype on
 filetype off
-call pathogen#incubate()
 set runtimepath+=/usr/local/Cellar/go/1.2.2/libexec/misc/vim
 filetype plugin indent on
+
+call plug#begin('~/.vim/plugged')
+Plug 'nanotech/jellybeans.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'rking/ag.vim'
+Plug 'jlanzarotta/bufexplorer'
+Plug 'kien/ctrlp.vim'
+Plug 'vim-ruby/vim-ruby'
+Plug 'scrooloose/nerdtree'
+call plug#end()
 
 " Color scheme
 set background=dark
@@ -22,6 +30,9 @@ set number
 
 " Visual width of tabs
 set tabstop=2 shiftwidth=2
+
+" Make backspace work normally
+set backspace=indent,eol,start
 
 " Smart indenting when starting new line
 set smartindent
