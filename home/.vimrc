@@ -10,7 +10,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'rking/ag.vim'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'kien/ctrlp.vim'
-Plug 'vim-ruby/vim-ruby'
 Plug 'scrooloose/nerdtree'
 call plug#end()
 
@@ -45,7 +44,7 @@ set shiftwidth=2
 
 augroup filetype_ruby
   autocmd!
-  autocmd FileType ruby setlocal sts=2 ts=2 sw=2 et
+  autocmd FileType ruby setlocal sts=2 ts=2 sw=2 et re=1 foldmethod=manual
 augroup END
 
 augroup filetype_rust
@@ -203,9 +202,6 @@ set modelines=0
 " Default to Unicode/UTF-8 rather than latin1
 set encoding=utf-8
 
-" Highlight the screen line of the cursor, easier to find the cursor.
-set cursorcolumn
-set cursorline
 
 " Terminals are plenty fast these days.
 set ttyfast
@@ -246,10 +242,6 @@ endfor
 
 " Mouse for scrolling etc in console.
 set mouse=a
-
-" Resize split panes with mouse within tmux.
-" Also get live-updated text selection with mouse drag.
-set ttymouse=xterm2
 
 " Mapping and escape timeouts.
 set timeout
